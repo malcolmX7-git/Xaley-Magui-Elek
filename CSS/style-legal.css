@@ -1,0 +1,73 @@
+/* ============================================
+   CSS SPÉCIFIQUE - MENTIONS LÉGALES
+   ============================================ */
+
+/* Section blocks style */
+.section-block {
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.section-block h2 {
+    color: var(--primary-color);
+    font-size: 1.6rem;
+    margin-bottom: var(--spacing-md);
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: var(--spacing-sm);
+}
+
+.section-block p {
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.8;
+}
+
+.section-block ul {
+    margin-left: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+}
+
+.section-block li {
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-dark);
+}
+
+.section-block a {
+    color: var(--primary-color);
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+.section-block a:hover {
+    color: var(--secondary-color);
+}
+
+/* Highlight legal */
+.section-block.status .highlight {
+    background-color: #cfe2ff;
+    border-left-color: var(--primary-color);
+    color: #084298;
+}
+
+/* Small text */
+.small {
+    font-size: 0.85rem;
+    color: var(--text-gray);
+}
+
+@media (max-width: 768px) {
+    .section-block h2 {
+        font-size: 1.4rem;
+    }
+    
+    .section-block p {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-block h2 {
+        font-size: 1.25rem;
+    }
+}

@@ -1,0 +1,77 @@
+/* ============================================
+   CSS SPÉCIFIQUE - PODCAST
+   ============================================ */
+
+/* Thèmes grid */
+.themes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.theme-card {
+    background: white;
+    border: 2px solid var(--border-color);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.theme-card:hover {
+    border-color: var(--secondary-color);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.theme-card h3 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.1rem;
+}
+
+.theme-card p {
+    color: var(--text-gray);
+    font-size: 0.95rem;
+}
+
+/* Objectives list */
+.objectives-list {
+    list-style: none;
+    margin-left: 0;
+    margin-top: var(--spacing-lg);
+}
+
+.objectives-list li {
+    margin-bottom: var(--spacing-md);
+    padding: var(--spacing-md);
+    background-color: var(--light-bg);
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--secondary-color);
+}
+
+.objectives-list strong {
+    color: var(--primary-color);
+}
+
+/* Editorial style */
+.section-block.editorial {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    text-align: center;
+    border: 2px solid var(--secondary-color);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius);
+}
+
+.section-block.editorial blockquote {
+    color: var(--primary-color);
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .themes-grid {
+        grid-template-columns: 1fr;
+    }
+}
