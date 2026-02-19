@@ -42,7 +42,7 @@
 
 .contact-card .small {
     font-size: 0.85rem;
-    opacity: 0.8;
+    opacity: 1;
     margin-top: var(--spacing-sm);
     display: block;
 }

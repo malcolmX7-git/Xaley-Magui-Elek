@@ -5,8 +5,8 @@
 
 /* Variables CSS */
 :root {
-    --primary-color: #2c5f7f;      /* Bleu profond */
-    --secondary-color: #e8b546;    /* Or/Jaune */
+    --primary-color: #0071BC;      /* Bleu profond */
+    --secondary-color: #FBB03B;    /* Or/Jaune */
     --accent-color: #d97764;       /* Rose/Corail */
     --light-bg: #f8f9fa;           /* Fond clair */
     --text-dark: #2c3e50;          /* Texte foncé */
@@ -58,8 +58,10 @@ body {
    ============================================ */
 
 header {
-    background-color: var(--primary-color);
-    color: white;
+    /* background-color: var(--primary-color); */
+    background-color: rgb(255, 255, 255);
+    /* color: white; */
+    color: black;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
@@ -70,7 +72,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: var(--spacing-md);
+    padding: var(--spacing-xs);
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -86,7 +88,7 @@ header {
 }
 
 .logo-img {
-    height: 60px;
+    height: 80px;
     width: auto;
     border-radius: 4px;
     object-fit: contain;
@@ -109,9 +111,9 @@ header {
 }
 
 .nav-menu a {
-    color: white;
+    color: var(--primary-color);
     text-decoration: none;
-    font-size: 0.95rem;
+    font-size: 1rem;
     transition: var(--transition);
     padding: var(--spacing-xs) var(--spacing-sm);
     border-radius: var(--border-radius);
@@ -119,7 +121,7 @@ header {
 
 .nav-menu a:hover {
     background-color: var(--secondary-color);
-    color: var(--primary-color);
+    color: white;
 }
 
 /* Hamburger Menu Button */
@@ -131,12 +133,13 @@ header {
     background: none;
     border: none;
     padding: var(--spacing-xs);
+    /* color: var(--primary-color); */
 }
 
 .hamburger span {
     width: 25px;
     height: 3px;
-    background-color: white;
+    background-color: var(--primary-color);
     border-radius: 3px;
     transition: var(--transition);
 }
@@ -164,7 +167,8 @@ header {
         top: 100%;
         left: 0;
         right: 0;
-        background-color: var(--primary-color);
+        /* background-color: var(--primary-color); */
+        background-color: white;
         flex-direction: column;
         gap: 0;
         padding: 0;
@@ -180,7 +184,7 @@ header {
     }
     
     .nav-menu li {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        border-bottom: 1px solid rgba(66, 66, 66, 0.116);
     }
     
     .nav-menu li:last-child {
@@ -213,7 +217,7 @@ header {
     align-items: center;
     gap: var(--spacing-xl);
     min-height: 500px;
-    background: linear-gradient(rgba(0, 0, 0, 0.623)), url("https://media.istockphoto.com/id/484794664/fr/photo/enseignant-en-lisant-un-livre-dans-la-classe-d%C3%A2ge-pr%C3%A9scolaire-enfants.jpg?s=612x612&w=0&k=20&c=4PYAWMK2gYmhdUd_oNN9fo7u1a8uSAE3UYhY7nSsQ-E=") fixed top/cover no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.723)), url("https://media.istockphoto.com/id/484794664/fr/photo/enseignant-en-lisant-un-livre-dans-la-classe-d%C3%A2ge-pr%C3%A9scolaire-enfants.jpg?s=612x612&w=0&k=20&c=4PYAWMK2gYmhdUd_oNN9fo7u1a8uSAE3UYhY7nSsQ-E=") fixed top/cover no-repeat;
 }
 
 .hero-content {
@@ -241,7 +245,7 @@ header {
 
 .hero-image {
     flex: 1;
-    max-width: 100%;
+    max-width: 50%;
     border-radius: var(--border-radius);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
@@ -254,11 +258,15 @@ header {
     }
     
     .hero h1 {
-        font-size: 2rem;
+        font-size: 3rem;
     }
     
     .hero .tagline {
         font-size: 1.2rem;
+    }
+
+    .hero-image{
+        display: none;
     }
 }
 
@@ -837,20 +845,29 @@ footer p {
     color: var(--primary-color);
 }
 
-.vision {
+.vision, .strategie {
     background: linear-gradient(135deg, var(--primary-color) 0%, #1e4d6b 100%);
     color: white;
     padding: var(--spacing-xl) var(--spacing-md);
     text-align: center;
 }
 
-.vision h2 {
+.strategie {
+    background: linear-gradient(135deg, #cfedff 100%, var(--primary-color) 0%);
+}
+
+.vision h2, .strategie h2{
     color: var(--secondary-color);
 }
 
-.vision p {
+.vision p{
     font-size: 1.2rem;
     line-height: 1.8;
+}
+.strategie p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgb(0, 0, 0);
 }
 
 /* ============================================
@@ -922,7 +939,7 @@ footer p {
     
     /* Hero section responsive */
     .hero h1 {
-        font-size: 1.8rem;
+        font-size: 2.5rem;
     }
     
     .hero .tagline {
@@ -931,6 +948,11 @@ footer p {
     
     .hero .conviction {
         font-size: 1rem;
+    }
+
+    .hero{
+        display: flex;
+        align-items: center;
     }
     
     /* Valeurs et listes */
@@ -951,7 +973,7 @@ footer p {
     }
     
     .hero h1 {
-        font-size: 1.5rem;
+        font-size: 2.5rem;
     }
     
     .hero .tagline {
@@ -975,10 +997,17 @@ footer p {
     .logo {
         font-size: 1.2rem;
     }
+
+    /* .hero-content{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    } */
     
     .hero {
         padding: var(--spacing-lg) var(--spacing-sm);
-        min-height: auto;
+        height: 20rem;
     }
     
     .cta {
