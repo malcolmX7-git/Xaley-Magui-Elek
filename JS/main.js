@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initNavigation();
     initScrollEffects();
     initAnimations();
+    initBackToTopButton();
 });
 
 /* ============================================
@@ -140,6 +141,44 @@ function throttle(func, limit) {
             setTimeout(() => inThrottle = false, limit);
         }
     };
+}
+
+/* ============================================
+   BOUTON BACK TO TOP
+   ============================================ */
+
+function initBackToTopButton() {
+    const backToTopBtn = document.getElementById('back-to-top');
+    
+    if (!backToTopBtn) return; // Bouton n'existe pas
+    
+    // Afficher/Masquer le bouton en fonction du scroll
+    const scrollThreshold = 100; // Afficher après 100px scrollé
+    
+    window.addEventListener('scroll', throttle(() => {
+        if (window.pageYOffset > scrollThreshold) {
+            backToTopBtn.classList.add('show');
+        } else {
+            backToTopBtn.classList.remove('show');
+        }
+    }, 100)); // Throttle à 100ms pour performance
+    
+    // Scroll fluide vers le haut au clic
+    backToTopBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    
+    // Optionnel: Focus sur bouton après scroll pour accessibilité
+    backToTopBtn.addEventListener('click', function() {
+        // Retard léger pour laisser le scroll se faire avant focus
+        setTimeout(() => {
+            document.querySelector('h1')?.focus();
+        }, 600);
+    });
 }
 
 /* ============================================

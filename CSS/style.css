@@ -92,6 +92,7 @@ header {
     width: auto;
     border-radius: 4px;
     object-fit: contain;
+    display: block;
 }
 
 .logo span {
@@ -117,6 +118,7 @@ header {
     transition: var(--transition);
     padding: var(--spacing-xs) var(--spacing-sm);
     border-radius: var(--border-radius);
+    position: relative;
 }
 
 .nav-menu a:hover {
@@ -124,13 +126,31 @@ header {
     color: white;
 }
 
+.nav-menu a:focus {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 2px;
+    text-decoration: underline;
+}
+
 /* Focus visible pour accessibilité clavier */
 .nav-menu a:focus,
 .btn:focus,
 .hamburger:focus,
 .logo-img:focus {
-    outline: 3px solid rgba(0, 113, 188, 0.25);
+    outline: 3px solid var(--primary-color);
     outline-offset: 2px;
+}
+
+.btn:focus {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Liens généraux avec focus visible */
+a:focus-visible {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 2px;
+    text-decoration: underline;
 }
 
 /* Skip link caché par défaut */
@@ -192,6 +212,50 @@ header {
     transform: rotate(-45deg) translate(7px, -7px);
 }
 
+/* ============================================
+   BACK TO TOP BUTTON
+   ============================================ */
+
+#back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 99;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+#back-to-top.show {
+    display: flex;
+}
+
+#back-to-top:hover {
+    background-color: #005a99;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+}
+
+#back-to-top:focus-visible {
+    outline: 3px solid white;
+    outline-offset: 2px;
+    background-color: #005a99;
+}
+
+#back-to-top:active {
+    transform: translateY(-1px);
+}
+
 /* Responsive menu */
 @media (max-width: 768px) {
     .hamburger {
@@ -212,11 +276,13 @@ header {
         overflow: hidden;
         transition: max-height 0.3s ease;
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        pointer-events: none;
     }
     
     .nav-menu.active {
         max-height: 400px;
         padding: var(--spacing-md) 0;
+        pointer-events: auto;
     }
     
     .nav-menu li {
@@ -284,6 +350,10 @@ header {
     max-width: 50%;
     border-radius: var(--border-radius);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 @media (max-width: 768px) {
@@ -414,6 +484,13 @@ blockquote {
     border-color: var(--secondary-color);
 }
 
+.axis-card:focus-within {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 1px;
+    border-color: var(--secondary-color);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
 .axis-card h3 {
     color: var(--primary-color);
     margin-bottom: var(--spacing-sm);
@@ -501,6 +578,13 @@ blockquote {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
+.theme-card:focus-within {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 1px;
+    border-color: var(--secondary-color);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
 .theme-card h3 {
     color: var(--primary-color);
     margin-bottom: var(--spacing-sm);
@@ -525,6 +609,13 @@ blockquote {
     padding: var(--spacing-lg);
     border-radius: var(--border-radius);
     text-align: center;
+    transition: var(--transition);
+}
+
+.contact-card:focus-within {
+    outline: 3px solid var(--secondary-color);
+    outline-offset: 2px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .contact-card h3 {
@@ -543,10 +634,16 @@ blockquote {
     text-decoration: underline;
 }
 
+.contact-card a:focus-visible {
+    outline: 3px solid var(--secondary-color);
+    outline-offset: 2px;
+    text-decoration: underline;
+}
+
 .contact-card .small {
-    font-size: 0.85rem;
-    opacity: 0.8;
-    margin-top: var(--spacing-sm);
+    font-size: 0.9rem;
+    opacity: 1;
+    margin-top: white;
     display: block;
 }
 
@@ -695,6 +792,11 @@ blockquote {
     text-align: center;
 }
 
+.btn:focus-visible {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
 .btn:disabled {
     opacity: 0.7;
     cursor: not-allowed;
@@ -715,6 +817,11 @@ blockquote {
     transform: translateY(0);
 }
 
+.btn-primary:focus-visible {
+    outline: 3px solid white;
+    outline-offset: 2px;
+}
+
 .btn-secondary {
     background-color: var(--secondary-color);
     color: var(--primary-color);
@@ -728,6 +835,11 @@ blockquote {
 
 .btn-secondary:active:not(:disabled) {
     transform: translateY(0);
+}
+
+.btn-secondary:focus-visible {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 2px;
 }
 
 /* ============================================
@@ -824,6 +936,13 @@ blockquote {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
+.faq-item:focus-within {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 1px;
+    border-color: var(--secondary-color);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
 .faq-item h3 {
     color: var(--primary-color);
     margin-bottom: var(--spacing-md);
@@ -871,6 +990,12 @@ footer a {
 }
 
 footer a:hover {
+    text-decoration: underline;
+}
+
+footer a:focus-visible {
+    outline: 3px solid var(--secondary-color);
+    outline-offset: 2px;
     text-decoration: underline;
 }
 
@@ -1048,13 +1173,6 @@ footer p {
     .logo {
         font-size: 1.2rem;
     }
-
-    /* .hero-content{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-    } */
     
     .hero {
         padding: var(--spacing-lg) var(--spacing-sm);
