@@ -10,7 +10,7 @@
     --accent-color: #d97764;       /* Rose/Corail */
     --light-bg: #f8f9fa;           /* Fond clair */
     --text-dark: #2c3e50;          /* Texte foncé */
-    --text-gray: #6c757d;          /* Texte gris */
+    --text-gray: #55595c;          /* Texte gris légèrement assombri pour meilleur contraste */
     --border-color: #dee2e6;       /* Bordures */
     --success-color: #28a745;      /* Succès */
     --warning-color: #ffc107;      /* Avertissement */
@@ -123,6 +123,42 @@ header {
     background-color: var(--secondary-color);
     color: white;
 }
+
+/* Focus visible pour accessibilité clavier */
+.nav-menu a:focus,
+.btn:focus,
+.hamburger:focus,
+.logo-img:focus {
+    outline: 3px solid rgba(0, 113, 188, 0.25);
+    outline-offset: 2px;
+}
+
+/* Skip link caché par défaut */
+.skip-to-main {
+  position: absolute;
+  top: -60px;          /* hors écran */
+  left: 0;
+  background-color: var(--primary-color);
+  color: white;
+  padding: var(--spacing-sm);
+  text-decoration: none;
+  z-index: 101;
+  border-radius: 4px;
+  transition: top 0.3s ease;
+}
+
+/* Affiche uniquement au focus clavier */
+.skip-to-main:focus-visible {
+  top: 10px;           /* remonte en haut de la page seulement pour clavier */
+}
+
+/* Optionnel : masquer totalement pour écran tactile */
+@media (hover: none) and (pointer: coarse) {
+  .skip-to-main {
+    display: none;     /* sur mobile tactile, invisible */
+  }
+} 
+
 
 /* Hamburger Menu Button */
 .hamburger {
@@ -585,10 +621,11 @@ blockquote {
 .form-group {
     display: flex;
     flex-direction: column;
+    margin-bottom: var(--spacing-md);
 }
 
 .form-group label {
-    color: var(--primary-color);
+    color: var(--text-dark);
     font-weight: 600;
     margin-bottom: var(--spacing-xs);
 }
@@ -597,11 +634,13 @@ blockquote {
 .form-group select,
 .form-group textarea {
     padding: var(--spacing-sm);
-    border: 1px solid var(--border-color);
+    border: 2px solid var(--border-color);
     border-radius: var(--border-radius);
     font-family: inherit;
     font-size: 1rem;
     transition: var(--transition);
+    background-color: #fff;
+    color: var(--text-dark);
 }
 
 .form-group input:focus,
@@ -609,22 +648,34 @@ blockquote {
 .form-group textarea:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(44, 95, 127, 0.1);
+    box-shadow: 0 0 0 3px rgba(0, 113, 188, 0.2);
 }
 
 .form-group.checkbox {
     flex-direction: row;
     align-items: flex-start;
     gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
 }
 
 .form-group.checkbox input {
-    margin-top: var(--spacing-xs);
+    margin-top: 0.25rem;
+    width: 1.25rem;
+    height: 1.25rem;
+    cursor: pointer;
 }
 
 .form-group.checkbox label {
     margin-bottom: 0;
     font-weight: normal;
+}
+
+/* Aide sur le formulaire */
+.form-hint {
+    font-size: 0.95rem;
+    color: var(--text-gray);
+    margin-bottom: var(--spacing-md);
+    font-style: italic;
 }
 
 /* ============================================
@@ -861,11 +912,11 @@ footer p {
 }
 
 .vision p{
-    font-size: 1.2rem;
     line-height: 1.8;
+    font-size: 1.2rem;
 }
 .strategie p {
-    font-size: 1rem;
+    font-size: 1.2rem;
     line-height: 1.6;
     color: rgb(0, 0, 0);
 }

@@ -31,15 +31,25 @@ function initNavigation() {
     const navMenu = document.querySelector('.nav-menu');
     
     if (hamburger && navMenu) {
+        // accessibility attributes
+        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.setAttribute('aria-controls', 'primary-navigation');
+        navMenu.setAttribute('id', 'primary-navigation');
+        navMenu.setAttribute('aria-hidden', 'true');
+
         hamburger.addEventListener('click', function() {
-            hamburger.classList.toggle('active');
+            const expanded = hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
+            hamburger.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+            navMenu.setAttribute('aria-hidden', expanded ? 'false' : 'true');
         });
         
         menuItems.forEach(item => {
             item.addEventListener('click', function() {
                 hamburger.classList.remove('active');
                 navMenu.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+                navMenu.setAttribute('aria-hidden', 'true');
             });
         });
         
