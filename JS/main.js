@@ -205,5 +205,24 @@ window.addEventListener('load', function() {
     }
 });
 
+const backToTop = document.getElementById('back-to-top');
+const whatsapp = document.getElementById('whatsapp-button');
+
+function adjustWhatsappPosition() {
+    if (backToTop.classList.contains('show')) {
+        // Back-to-top visible → WhatsApp au-dessus
+        whatsapp.style.bottom = '6.5rem';
+    } else {
+        // Back-to-top caché → WhatsApp en bas
+        whatsapp.style.bottom = '2rem';
+    }
+}
+
+// Détection du scroll
+window.addEventListener('scroll', adjustWhatsappPosition);
+
+// Initial call pour positionner correctement au chargement
+adjustWhatsappPosition();
+
 console.log('✓ XME Site - Scripts communs chargés');
 
