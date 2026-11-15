@@ -382,12 +382,12 @@ a:focus-visible {
 
 .hero-image {
     flex: 1;
-    max-width: 50%;
+    max-width: 32%;
     border-radius: var(--border-radius);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     object-fit: cover;
-    width: 100%;
-    height: auto;
+    width: 90%;
+    height: 100%;
     display: block;
 }
 
