@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://xaley-magui-elek.netlify.app/sitemap.xml

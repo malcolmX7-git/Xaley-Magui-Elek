@@ -167,7 +167,7 @@
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "XME - Xaley Magui Ëlëk",
-    "url": "https://xaleymaguielek.org",
+    "url": "https://xaley-magui-elek.netlify.app",
     "publisher": { "@type": "Organization", ... }
   }
   ```
